@@ -1,0 +1,461 @@
+/* Reset básico e variáveis */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-primary: #FFC300;   /* Amarelo vibrante, forte e energético */
+  --color-bg: #FFFFFF;        /* Fundo branco */
+  --color-dark: #1A1A1A;      /* Preto suave para textos e contrastes */
+  --color-light: #FFF8E1;     /* Amarelo bem clarinho para fundos secundários */
+  --color-accent: #FFB700;    /* Amarelo mais escuro para hover/detalhes */
+  --font-family: 'Helvetica', sans-serif;
+}
+
+/* Container global */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Header */
+.site-header {
+  width: 95%;
+  max-width: 1400px;
+  height: 64px;
+  margin: 2rem auto 0;
+  padding: 0; /* remove padding para deixar o container interno controlar */
+  background: linear-gradient(135deg, #fff9c4, #ffe082);
+  border-radius: 100px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  position: relative;
+  z-index: 999;
+
+  display: flex;
+  justify-content: center; /* centraliza o container interno */
+  align-items: center;
+}
+
+.header-container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  height: 64px;
+}
+
+.logo a {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--color-primary);
+  text-decoration: none;
+  letter-spacing: 1px;
+  display: block;
+}
+
+/* Aqui está a mágica para empurrar o menu para direita */
+.main-nav {
+  margin-left: auto;
+  display: flex;
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: var(--color-dark);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+  color: var(--color-primary);
+}
+
+.btn-header {
+  background-color: var(--color-primary);
+  color: #fff !important;
+  padding: 0.5rem 1.2rem;
+  border-radius: 25px;
+  transition: background 0.3s ease;
+}
+
+.btn-header:hover {
+  background-color: var(--color-accent);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .site-header {
+    width: 90%;
+    height: auto;
+    padding: 1rem 1.5rem;
+    border-radius: 24px;
+    /* Retirar flex-direction: column para header, vamos usar row */
+    flex-direction: row;
+    justify-content: space-between; /* espaço entre logo e hamburger */
+    align-items: center;
+  }
+
+  .header-container {
+    max-width: 100%;
+    flex-direction: row; /* mantém linha no container */
+    gap: 0;
+    padding: 0;
+    height: 64px;
+    justify-content: space-between;
+  }
+
+  /* Mostrar só o botão hamburger no mobile, esconder menu quando fechado */
+  .main-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 260px;
+    background-color: var(--color-bg);
+    flex-direction: column;
+    padding-top: 5rem;
+    gap: 2rem;
+    transition: right 0.3s ease;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+
+  .main-nav.open {
+    right: 0;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    padding-left: 1.5rem;
+    margin-top: 30px;
+  }
+
+  .btn-header {
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem 0;
+  }
+
+  .hamburger {
+    display: flex;
+    margin-left: 1rem; /* espaçamento à direita do logo */
+  }
+}
+
+
+
+
+
+
+/* seção hero */
+
+.hero {
+  width: 100%;
+  padding: 6rem 0;
+  background: var(--color-bg); /* branco ou use um gradiente leve se quiser */
+  font-family: var(--font-family);
+  
+}
+
+.hero-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.hero-text {
+  flex: 1;
+}
+
+.hero-text h1 {
+  font-size: 2.8rem;
+  color: var(--color-dark);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.btn-hero {
+  background-color: var(--color-primary);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.btn-hero:hover {
+  background-color: var(--color-accent);
+}
+
+.hero-image {
+  flex: 1;
+  text-align: center;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+
+
+
+.main-nav {
+  display: flex;
+}
+
+.hamburger {
+  display: none; /* só aparece no mobile */
+  flex-direction: column;
+  justify-content: space-around;
+  width: 28px;
+  height: 22px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+
+.hamburger span {
+  width: 28px;
+  height: 3px;
+  background: var(--color-primary);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: 1px;
+}
+
+/* Media query para mobile (até 768px) */
+@media (max-width: 768px) {
+  .main-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 260px;
+    background-color: var(--color-bg);
+    flex-direction: column;
+    padding-top: 5rem;
+    gap: 2rem;
+    transition: right 0.3s ease;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+
+  .main-nav.open {
+    right: 0;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    align-items: center;
+    
+    gap: 3rem;
+    padding-left: 1.5rem;
+    margin-top: 30px;
+    
+    
+  }
+
+  
+
+  .main-nav a {
+    font-size: 1.2rem;
+    color: var(--color-dark);
+  }
+
+  .btn-header {
+    display: none;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  /* Animar hambúrguer para X quando ativo */
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(45deg);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg);
+  }
+
+
+  
+}
+
+
+@media (max-width: 768px) {
+  .hero-flex {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: left;
+    
+  }
+
+  .hero-text {
+    flex: none;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  .hero-image {
+    display: block;
+    max-width: 250px;
+    margin: 0;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 60px;
+  }
+}
+
+
+
+
+
+
+
+.footer {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 2rem;
+  font-size: 0.9rem;
+  color: #555;
+  background-color: #f9f9f9;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  margin-top: 3rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Popup container */
+.popup-container {
+  position: fixed;
+  top: -200px; /* fora da tela inicialmente */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fefefe;
+  padding: 1rem 1.3rem;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  display: none;
+  flex-direction: column;
+  gap: 0.6rem;
+  z-index: 9999;
+  max-width: 320px;
+  border: 2px solid #25D366;
+  animation: none;
+}
+
+.popup-container.show {
+  display: flex;
+  animation: slide-down 0.6s ease forwards;
+}
+
+@keyframes slide-down {
+  0% {
+    top: -200px;
+    opacity: 0;
+  }
+  100% {
+    top: 20%;
+    opacity: 1;
+  }
+}
+
+.popup-content p {
+  margin: 0;
+  font-size: 1rem;
+  color: #222;
+  font-weight: 500;
+}
+
+/* Botão */
+.popup-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+.popup-button:hover {
+  background: linear-gradient(135deg, #1db954, #075e54);
+  transform: scale(1.05);
+}
+
+.whatsapp-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Botão fechar */
+.popup-close {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 1.4rem;
+  color: #999;
+}
+.popup-close:hover {
+  color: #333;
+}
