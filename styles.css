@@ -459,3 +459,18 @@
 .popup-close:hover {
   color: #333;
 }
+
+
+
+
+
+/* forçar tema claro */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: light;
+  }
+  body {
+    background-color: var(--color-bg) !important;
+    color: var(--color-dark) !important;
+  }
+}
